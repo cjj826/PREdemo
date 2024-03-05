@@ -99,60 +99,66 @@ const submit = () => {
   link.click(); // 模拟点击实现下载
   
   document.body.removeChild(link); // 下载后移除元素
-  URL.revokeObjectURL(url); // 释放掉blob对象的URL
+  URL.revokeObjectURL(url); // 释放URL
 };
 </script>
 
 <style scoped>
 .form-container {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 20px 100px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 400px;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* 元素之间的间隔 */
 }
 
-.input, .select, .button {
+.input, .select, .button, .file-upload-button {
   width: 100%;
-  padding: 12px 15px; /* 略微增加内边距以提供更多的空间和舒适度 */
-  margin: 12px 0; /* 增加外边距以改进元素之间的空间 */
-  border-radius: 8px; /* 增加边框圆角，使元素更加现代和圆润 */
-  border: 1px solid #d1d5db; /* 使用更柔和的边框颜色 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加轻微的阴影，增加层次感 */
-  transition: all 0.3s ease; /* 添加过渡效果，使状态变化更平滑 */
+  padding: 10px; 
+  margin: 12px 0; 
+  border-radius: 8px; 
+  border: 1px solid #ccc; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: all 0.3s ease; 
 }
 
 .input:focus, .select:focus {
-  border-color: #93c5fd; /* 聚焦时改变边框颜色，提高用户交互体验 */
-  box-shadow: 0 0 0 3px rgba(147,197,253,0.5); /* 聚焦时增加更明显的阴影，突出元素 */
+  outline: none;
+  border-color: #93c5fd; 
+  box-shadow: 0 0 0 3px rgba(147,197,253,0.5); 
 }
 
 .input {
-  width: 90%;
+  width: 95%;
 }
 
 .button {
-  color: #ffffff; /* 设置按钮文字颜色为白色 */
-  background-color: #3b82f6; /* 使用更鲜艳的背景色 */
-  cursor: pointer; /* 确保鼠标悬停时显示为指针 */
+  color: #ffffff; 
+  background-color: #409eff; 
+  cursor: pointer; 
 }
 
 .button:hover {
-  background-color: #2563eb; /* 鼠标悬停时改变按钮背景色，增加交互性 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 鼠标悬停时增加阴影，增加立体感 */
+  background-color: #337ab7; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .file-upload-wrapper {
   display: flex;
-  justify-content: space-between; /* 使按钮和文件名分布在两端 */
+  justify-content: space-between; 
   align-items: center;
-  width: 100%; /* 容器宽度为100% */
+  width: 100%; 
 }
 
 .file-upload-button {
   padding: 10px 20px;
-  background-color: #007bff;
+  width: 50%;
+  background-color: #409eff;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -161,7 +167,7 @@ const submit = () => {
 }
 
 .file-upload-button:hover {
-  background-color: #0056b3;
+  background-color: #337ab7;
 }
 
 .file-input {
@@ -174,12 +180,12 @@ const submit = () => {
 }
 
 .file-name {
-  flex-grow: 1; /* 文件名占据剩余空间 */
-  padding: 0 10px; /* 保持文字不贴边 */
+  flex-grow: 1; 
+  padding: 0 10px; 
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* 长文件名用省略号表示 */
+  text-overflow: ellipsis;
 }
 
 </style>
